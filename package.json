@@ -1,0 +1,28 @@
+{
+  "name": "chatbot-test",
+  "version": "1.0.0",
+  "description": "Chatbot test made with Node.js",
+  "main": "app.js",
+  "dependencies": {
+    "botbuilder": "^3.14.0",
+    "restify": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrleon90/chatbot-test.git"
+  },
+  "keywords": [
+    "Chatbot",
+    "Node.js"
+  ],
+  "author": "Jrleon90",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrleon90/chatbot-test/issues"
+  },
+  "homepage": "https://github.com/jrleon90/chatbot-test#readme"
+}
