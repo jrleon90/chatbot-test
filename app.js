@@ -24,7 +24,7 @@ server.post('/api/messages', connector.listen());
 
 const bot = new builder.UniversalBot(connector);
 
-const luisModelUrl = 'https://' + process.env.LUIS_App_HostName + '/luis/v2.0/apps/' + process.env.LUIS_App_Id + '?subscription-key=' + process.env.LUIS_App_Prod_Key;
+const luisModelUrl = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/52f75cd5-8b0d-46a2-9e9a-2cf78e0c8009?subscription-key=7c7149564c1547fda445fc15a2047b0a';
 
 const recognizer = new builder.LuisRecognizer(luisModelUrl);
 
