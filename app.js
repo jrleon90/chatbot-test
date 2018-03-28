@@ -15,8 +15,8 @@ server.listen(process.env.port || process.env.PORT || 3978, () =>{
 
 //Create Bot
 const connector = new builder.ChatConnector({
-    appId: 'd59f764d-b312-4a05-a1f4-2e93ed677de8',
-    appPassword: 'S@l0Dzh---sIND))'
+    //appId: 'd59f764d-b312-4a05-a1f4-2e93ed677de8',
+    //appPassword: 'S@l0Dzh---sIND))'
 });
 server.post('/api/messages', connector.listen());
 
@@ -46,6 +46,10 @@ intents.matches('support', (session,args,next) => {
    session.beginDialog('acceptRecommendation');
 });
 
+intents.matches('reset', (session, args, next) => {
+   session.replaceDialog('sellCar');
+});
+
 bot.dialog('startRecommendation', [
     (session, args, next) => {
         builder.Prompts.choice(session, 'Would you like a recommendation?', 'Yes|No', {listStyle: builder.ListStyle.button});
@@ -65,3 +69,6 @@ bot.dialog('startRecommendation', [
 
 bot.dialog('acceptRecommendation', require('./src/chatbotDialog/recommendation'));
 bot.dialog('sellCar',require('./src/chatbotDialog/sellCar'));
+bot.dialog('sellSuv',require('./src/chatbotDialog/sellSuv'));
+bot.dialog('sellSport',require('./src/chatbotDialog/sellSport'));
+bot.dialog('sellSedan',require('./src/chatbotDialog/sellSedan'));

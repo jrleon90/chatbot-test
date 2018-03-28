@@ -9,10 +9,18 @@ module.exports = [
         session.userData.familyOption = results.response.entity;
         console.log('Family:'+session.userData.familyOption);
         if (session.userData.familyOption === 'Familiar') {
-            builder.Prompts.choice(session, 'Do you have more than 4 Family members?','Yes|No',{listStyle: builder.ListStyle.button});
+            session.replaceDialog('sellSuv');
         }else{
-            session.send('Personal vehicle');
-            session.endDialog('Thanks!');
+            builder.Prompts.choice(session, 'You want style or speed?','Style|Speed',{listStyle: builder.ListStyle.button,retryPrompt: 'Not valid'});
+        }
+    },
+    (session, results) => {
+        session.userData.personalOption = results.response.entity;
+        if (session.userData.personalOption === 'Style'){
+            session.replaceDialog('sellSedan');
+        }else {
+            session.replaceDialog('sellSport');
         }
     }
 ];
+

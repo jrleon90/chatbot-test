@@ -31,7 +31,9 @@ module.exports = [
             for (let i = 0; i < modelResponse.length; i++){
                 carNames.push(modelResponse[i].carModel);
             }
-            builder.Prompts.choice(session,reply,carNames);
+            builder.Prompts.choice(session,reply,carNames, {
+                retryPrompt: reply
+            });
         });
     },
     (session, results) => {

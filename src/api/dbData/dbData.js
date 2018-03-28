@@ -82,5 +82,69 @@ module.exports={
         cards.push(card);
       }
       return cards;
-  }
+  },
+
+  getSuvModels: () => {
+        let suvPromise = new Promise((resolve, reject) => {
+            let suvVehicles = [];
+            request.get('https://my-json-server.typicode.com/jrleon90/chatbot-data/products', (error, response, body) => {
+                let bodyObj = JSON.parse(body);
+                for(let i = 0;i<bodyObj.length;i++){
+
+                    if (!checkArray(suvVehicles,bodyObj[i].model,'model') && (bodyObj[i].type === 'suv')){
+                        suvVehicles.push({
+                            'carBrand': bodyObj[i].brand,
+                            'carModel': bodyObj[i].model,
+                            'carPrice': bodyObj[i].price,
+                            'carImage': bodyObj[i].image
+                        });
+                    }
+                }
+                resolve(suvVehicles);
+            });
+        });
+        return suvPromise;
+    },
+    getSportModels: () => {
+        let sportPromise = new Promise((resolve, reject) => {
+            let suvVehicles = [];
+            request.get('https://my-json-server.typicode.com/jrleon90/chatbot-data/products', (error, response, body) => {
+                let bodyObj = JSON.parse(body);
+                for(let i = 0;i<bodyObj.length;i++){
+
+                    if (!checkArray(suvVehicles,bodyObj[i].model,'model') && (bodyObj[i].type === 'sport')){
+                        suvVehicles.push({
+                            'carBrand': bodyObj[i].brand,
+                            'carModel': bodyObj[i].model,
+                            'carPrice': bodyObj[i].price,
+                            'carImage': bodyObj[i].image
+                        });
+                    }
+                }
+                resolve(suvVehicles);
+            });
+        });
+        return sportPromise;
+    },
+    getSedanModels: () => {
+        let sportPromise = new Promise((resolve, reject) => {
+            let suvVehicles = [];
+            request.get('https://my-json-server.typicode.com/jrleon90/chatbot-data/products', (error, response, body) => {
+                let bodyObj = JSON.parse(body);
+                for(let i = 0;i<bodyObj.length;i++){
+
+                    if (!checkArray(suvVehicles,bodyObj[i].model,'model') && (bodyObj[i].type === 'sedan')){
+                        suvVehicles.push({
+                            'carBrand': bodyObj[i].brand,
+                            'carModel': bodyObj[i].model,
+                            'carPrice': bodyObj[i].price,
+                            'carImage': bodyObj[i].image
+                        });
+                    }
+                }
+                resolve(suvVehicles);
+            });
+        });
+        return sportPromise;
+    }
 };
