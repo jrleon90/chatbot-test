@@ -35,7 +35,7 @@ const intents = new builder.IntentDialog({
 bot.dialog('/', intents);
 
 intents.matches('Greet', (session, args, next) => {
-   session.send('Hello there! I am Car bot, your best car dealer in the web! How can I help you today?');
+   session.send('Hello there! I am Carbot, your best car dealer in the web! How can I help you today?');
 });
 
 intents.matches('ShowCars', (session, args, next) => {
@@ -50,9 +50,10 @@ intents.matches('reset', (session, args, next) => {
    session.replaceDialog('sellCar');
 });
 
+
 bot.dialog('startRecommendation', [
     (session, args, next) => {
-        builder.Prompts.choice(session, 'Would you like a recommendation?', 'Yes|No', {listStyle: builder.ListStyle.button});
+        builder.Prompts.choice(session, 'Would you like a recommendation?', 'Yes|No', {listStyle: builder.ListStyle.button, retryPrompt: 'I \'m sorry, I didn\'t understand that, please select another option'});
     },
     (session, results) => {
         session.userData.recommendationOption = results.response.entity;
