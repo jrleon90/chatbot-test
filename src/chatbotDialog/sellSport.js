@@ -13,7 +13,10 @@ module.exports = [
                 sportName.push(sportResponse[i].carModel);
             }
             builder.Prompts.choice(session,reply,sportName, {
-                retryPrompt: reply
+                retryPrompt: new builder.Message(session)
+                    .text('I\'m sorry, that option is not valid, please select another one')
+                    .attachmentLayout(builder.AttachmentLayout.carousel)
+                    .attachments(cards)
             });
         });
     },

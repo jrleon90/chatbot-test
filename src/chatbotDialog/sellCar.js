@@ -32,7 +32,10 @@ module.exports = [
                 carNames.push(modelResponse[i].carModel);
             }
             builder.Prompts.choice(session,reply,carNames, {
-                retryPrompt: reply
+                retryPrompt: new builder.Message(session)
+                    .text('I\'m sorry, that option is not valid, please select another one')
+                    .attachmentLayout(builder.AttachmentLayout.carousel)
+                    .attachments(cards)
             });
         });
     },
