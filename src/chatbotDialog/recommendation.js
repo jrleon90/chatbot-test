@@ -3,7 +3,7 @@
 module.exports = [
     (session, args, next) => {
         session.send('Perfect! Please let me ask you a few questions in order to find you the best option');
-        builder.Prompts.choice(session, 'How is the car that you need?','Family car|Something smaller',{listStyle: builder.ListStyle.button,retryPrompt: 'I \'m sorry, I didn\'t understand that, please select another option'});
+        builder.Prompts.choice(session, 'How is the car that you need?','Family car|Something faster and smaller',{listStyle: builder.ListStyle.button,retryPrompt: 'I \'m sorry, I didn\'t understand that, please select another option'});
     },
     (session, results) => {
         session.userData.familyOption = results.response.entity;
