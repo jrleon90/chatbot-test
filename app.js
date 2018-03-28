@@ -15,8 +15,8 @@ server.listen(process.env.port || process.env.PORT || 3978, () =>{
 
 //Create Bot
 const connector = new builder.ChatConnector({
-    //appId: 'd59f764d-b312-4a05-a1f4-2e93ed677de8',
-    //appPassword: 'S@l0Dzh---sIND))'
+    appId: 'd59f764d-b312-4a05-a1f4-2e93ed677de8',
+    appPassword: 'S@l0Dzh---sIND))'
 });
 server.post('/api/messages', connector.listen());
 
